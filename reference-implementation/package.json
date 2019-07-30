@@ -1,0 +1,59 @@
+{
+   "name": "integration-tests",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "@types/jest": "^24.0.15",
+      "@types/node": "^8.0.29",
+      "@types/request-promise": "^4.1.44",
+      "babel-jest": "^24.8.0",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "faker": "^4.1.0",
+      "gql-generator": "^1.0.12",
+      "graphql-yoga": "^1.18.1",
+      "jest": "^24.8.0",
+      "nodemon": "^1.19.1",
+      "pg": "^7.11.0",
+      "reflect-metadata": "^0.1.10",
+      "request-promise": "^4.2.4",
+      "ts-jest": "^24.0.2",
+      "typeorm": "0.2.18"
+   },
+   "scripts": {
+      "migration:generate": "ts-node ./node_modules/.bin/typeorm migration:generate",
+      "migration:run": "ts-node ./node_modules/.bin/typeorm migration:run",
+      "migration:revert": "ts-node ./node_modules/.bin/typeorm migration:revert",
+      "start": "nodemon",
+      "test": "NODE_ENV=test jest -i",
+      "test-debug": "node --require ts-node/register --inspect-brk node_modules/.bin/jest",
+      "gqlg": "./node_modules/.bin/gqlg --schemaFilePath ./src/graphql/schema.graphql --destDirPath ./src/tests/test-utils/generated-output"
+   },
+   "jest": {
+      "moduleFileExtensions": [
+         "ts",
+         "tsx",
+         "js"
+      ],
+      "moduleNameMapper": {
+         "@/([^\\.]*)$": "<rootDir>/src/$1"
+      },
+      "transform": {
+         "\\.(js)$": "babel-jest",
+         "\\.(ts|tsx)$": "ts-jest"
+      },
+      "globals": {
+         "ts-jest": {
+            "babelConfig": true
+         },
+         "jsdom": true
+      },
+      "testRegex": "(/__tests__/.*|\\.*(test))\\.(ts|tsx|js)$",
+      "testPathIgnorePatterns": [
+         "\\.snap$",
+         "<rootDir>/node_modules/"
+      ]
+   }
+}

@@ -20,7 +20,7 @@
       "reflect-metadata": "^0.1.10",
       "request-promise": "^4.2.4",
       "ts-jest": "^24.0.2",
-      "typeorm": "0.2.18"
+      "typeorm": "0.2.25"
    },
    "scripts": {
       "migration:generate": "ts-node ./node_modules/.bin/typeorm migration:generate",
